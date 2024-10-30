@@ -1,5 +1,6 @@
 package com.example.restaurant_system_api.model;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -11,8 +12,10 @@ public class Order {
     private String status;      // Užsakymo būsena ("placed", "completed", "laiku neparuoštas")
     private LocalDateTime orderTime;  // Laikas, kada užsakymas buvo pateiktas
     private LocalDateTime completeTime;
+    private BigDecimal amount;
+    private String paymentMethod;
 
-    public Order(String orderId, String clientName, int tableNo, List<String> dishes, String status, LocalDateTime orderTime, LocalDateTime completeTime) {
+    public Order(String orderId, String clientName, int tableNo, List<String> dishes, String status, LocalDateTime orderTime, LocalDateTime completeTime, BigDecimal amount, String paymentMethod) {
         this.orderId = orderId;
         this.clientName = clientName;
         this.tableNo = tableNo;
@@ -20,6 +23,8 @@ public class Order {
         this.status = status;
         this.orderTime = orderTime;
         this.completeTime = completeTime;
+        this.amount = amount;
+        this.paymentMethod = paymentMethod;
     }
 
     public String getOrderId() {
@@ -76,5 +81,21 @@ public class Order {
 
     public void setCompleteTime(LocalDateTime completeTime) {
         this.completeTime = completeTime;
+    }
+
+    public BigDecimal getAmount() {
+        return amount;
+    }
+
+    public void setAmount(BigDecimal amount) {
+        this.amount = amount;
+    }
+
+    public String getPaymentMethod() {
+        return paymentMethod;
+    }
+
+    public void setPaymentMethod(String paymentMethod) {
+        this.paymentMethod = paymentMethod;
     }
 }
